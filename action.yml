@@ -1,17 +1,21 @@
 name: "Podcast Generator"
 author: "Ray Villalobos"
 description: "Generates a feed for a podcast from a YAML file"
+
+inputs:
+  email:
+    description: "The committer's email address"
+    required: true 
+    default: ${{ github.actor }}@users.noreply.github.com
+  name:
+    description: "The committer's name"
+    required: true
+    default: ${{ github.actor }}
+
 runs:
   using: "docker"
   image: "Dockerfile"
+
 branding: 
   icon: "git-branch"
   color: "red"
-inputs:
-  email:
-    description: The commiter's email address
-    required: true 
-    default: ${{ github.actor }}@loacalhost
-  name:
-  description: true
-  default: ${{ github.actor }}
